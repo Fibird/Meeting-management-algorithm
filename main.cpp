@@ -3,12 +3,12 @@
 #define N 11
 using namespace std;
 
-typedef struct
+struct meeting
 {
     int s;
     int e;
     int id;
-}meeting;
+};
 
 int cmp(const void *a, const void *b)
 {
@@ -21,6 +21,7 @@ int cmp(const void *a, const void *b)
 int main()
 {
     meeting Meeting[N];
+    int temp = 0;
 
     for (int i = 0; i < N; i++)
     {
@@ -30,16 +31,16 @@ int main()
 
     qsort(Meeting, N, sizeof(Meeting[0]), cmp);
 
-    cout << 1 << endl;
+    cout << Meeting[0].id << endl;
 
-    for (int i = 0; i < N; i++)
+    while (temp < N)
     {
-        for (int j = i + 1; j < N; j++)
+        for (int j = temp + 1; j < N; j++)
         {
-            if (Meeting[j].s > Meeting[i].s)
+            if (Meeting[j].s > Meeting[temp].e)
             {
                 cout << Meeting[j].id << endl;
-                i = j;
+                temp = j;
                 break;
             }
         }
