@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1473666856 source:e:\meetting_manage\main.cpp
+	<iostream>
+	<cstdlib>
+
